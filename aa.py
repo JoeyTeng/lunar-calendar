@@ -1582,7 +1582,7 @@ def fmtdeg(fdegree):
     sign =''
     if fdegree < 0:
         sign = '-'
-    res = '''%s%d%s%d'%.6f"''' % (sign, int(deg), u'\N{DEGREE SIGN}',
+    res = '''%s%d%s%d'%.6f"''' % (sign, int(deg), '\N{DEGREE SIGN}',
                             math.floor(minutes), secs)
     return res
 
@@ -1689,8 +1689,8 @@ def findnewmoons(start, count=15):
         b = newmoon(start)
         if b != nm:
             if nm > 0 and abs(nm - b) > (SYNODIC_MONTH + 1):
-                print 'last newmoon %s, found %s' % (fmtjde2ut(nm),
-                                                     fmtjde2ut(b))
+                print('last newmoon %s, found %s' % (fmtjde2ut(nm),
+                                                     fmtjde2ut(b)))
             newmoons.append(b)
             nm = b
             nmcount += 1
@@ -2236,7 +2236,7 @@ def fortran_readline(line, fmt):
     tmp = []
     i = 0
     for rep, ftype, length in fw:
-        for cnt in xrange(rep):
+        for cnt in range(rep):
             field = line[i: i + length]
             i += length
             if ftype == 'F':
@@ -2261,7 +2261,7 @@ def fortran_read(fp, fmt):
         tmp = []
         i = 0
         for rep, ftype, length in fw:
-            for cnt in xrange(rep):
+            for cnt in range(rep):
                 field = line[i: i + length]
                 i += length
                 if ftype == 'F':
@@ -2391,7 +2391,7 @@ class LEA406():
             CTT_V.append(a[20])
 
             # CALCULATING THE ARGUMENTS [RAD]
-            for K in xrange(14):
+            for K in range(14):
                 F0_V[I] += IND[K] * FR[K][0]
                 F1_V[I] += IND[K] * FR[K][1]
                 F2_V[I] += IND[K] * FR[K][2]
@@ -2399,7 +2399,7 @@ class LEA406():
                 F4_V[I] += IND[K] * FR[K][4]
 
         LEN_KEPT = LEN - count
-        print '%d skipped, %d kept' % (count, LEN_KEPT)
+        print('%d skipped, %d kept' % (count, LEN_KEPT))
         self.A_V =array(A_V)
         self.AT_V =array(AT_V)
         self.ATT_V =array(ATT_V)
@@ -2480,11 +2480,11 @@ def main():
     #jd = 2444239.5
     jd = g2jd(1900, 1, 1)
     #lea406class = LEA406()
-    for i in xrange(1):
+    for i in range(1):
         #l = normrad(lea406class.lon(jd))
         l = normrad(lea406(jd))
         #d = fmtdeg(math.degrees(npitopi(e -l )))
-        print jd, l, fmtdeg(math.degrees(l))
+        print(jd, l, fmtdeg(math.degrees(l)))
         jd += 2000
     #print fmtdeg(math.degrees(e) % 360.0)
     #angle = -105
@@ -2497,8 +2497,8 @@ def main():
 def test():
     jd = 2411545.0
     year = 2097
-    for year in xrange(2060, 2060):
-        print year, deltaT(year, 9)
+    for year in range(2060, 2060):
+        print(year, deltaT(year, 9))
 
 
 if __name__ == "__main__":

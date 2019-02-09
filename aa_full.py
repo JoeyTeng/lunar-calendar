@@ -322,10 +322,10 @@ def lea406_full(jd, ignorenutation=False):
 def main():
     #jd = 2444239.5
     jd = g2jd(1900, 1, 1)
-    for i in xrange(10):
+    for i in range(10):
         l = normrad(lea406_full(jd))
         #d = fmtdeg(math.degrees(npitopi(e -l )))
-        print jd, l, fmtdeg(math.degrees(l))
+        print(jd, l, fmtdeg(math.degrees(l)))
         jd += 2000
     #print fmtdeg(math.degrees(e) % 360.0)
     #angle = -105
